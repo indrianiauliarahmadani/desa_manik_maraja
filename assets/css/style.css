@@ -1,0 +1,493 @@
+/* =========================
+   RESET & GLOBAL
+========================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  line-height: 1.6;
+  color: #1f2937;
+  background: #f0fdfa;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  width: 92%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+  background: #0f766e;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.navbar .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+}
+
+.logo {
+  color: #fff;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  gap: 24px;
+}
+
+.nav-menu a {
+  color: #e5e7eb;
+  font-weight: 500;
+}
+
+.nav-menu a:hover {
+  color: #ffffff;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+  min-height: 100vh;
+  background:
+    linear-gradient(rgba(0,0,0,.45), rgba(0,0,0,.45)),
+    url('../img/kantor.jpeg')
+    center / cover no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #fff;
+}
+
+.hero h2 {
+  font-size: 42px;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 17px;
+  margin-top: 12px;
+  max-width: 700px;
+  margin-inline: auto;
+}
+
+/* =========================
+   SECTION
+========================= */
+.section {
+  padding: 90px 0;
+}
+
+.section h2 {
+  color: #0f766e;
+  text-align: center;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.section p {
+  text-align: justify;
+  font-size: 15px;
+  color: #374151;
+}
+
+/* =========================
+   GRID (GALERI, UMKM, WISATA, PENGUMUMAN)
+========================= */
+.galeri-grid,
+.pengumuman-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-top: 32px;
+}
+
+/* =========================
+   CARD – PROFESIONAL
+========================= */
+.galeri-item,
+.pengumuman-card,
+.card,
+.org-card {
+  background: #ffffff;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.galeri-item:hover,
+.pengumuman-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(0,0,0,0.12);
+}
+
+/* =========================
+   IMAGE (UTUH & TIDAK TERLALU BESAR)
+========================= */
+.galeri-item img,
+.pengumuman-card img,
+.card img,
+.org-card img {
+  width: 100%;
+  max-height: 240px;      /* KUNCI KERAPIAN */
+  object-fit: contain;   /* GAMBAR UTUH */
+  background: #f0fdfa;
+}
+
+/* =========================
+   CARD BODY
+========================= */
+.pengumuman-body {
+  padding: 14px 16px;
+}
+
+.pengumuman-body h4 {
+  font-size: 15px;
+  font-weight: 600;
+  color: #0f766e;
+  margin-bottom: 6px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.pengumuman-body p {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: #4b5563;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.btn-primary {
+  margin: 14px auto 18px;
+  display: inline-block;
+  background: #0f766e;
+  color: #ffffff;
+  padding: 9px 22px;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+  background: #065f55;
+  transform: translateY(-2px);
+}
+
+/* =========================
+   MAPS
+========================= */
+.maps-wrapper {
+  width: 100%;
+  height: 380px;
+  margin-top: 32px;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 14px 32px rgba(0,0,0,.12);
+}
+
+.maps-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* =========================
+   LIGHTBOX & MODAL
+========================= */
+.lightbox,
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.65);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s;
+  z-index: 9999;
+}
+
+.lightbox.active,
+.modal.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox-content,
+.modal-content {
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  max-width: 520px;
+  width: 90%;
+  text-align: center;
+}
+
+.lightbox-content img,
+.modal-content img {
+  width: 100%;
+  max-height: 320px;
+  object-fit: contain;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 1024px) {
+  .galeri-grid,
+  .pengumuman-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .galeri-grid,
+  .pengumuman-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero h2 {
+    font-size: 30px;
+  }
+
+  .hero p {
+    font-size: 15px;
+  }
+
+  .maps-wrapper {
+    height: 280px;
+  }
+}
+/* Media (gambar / video) pengumuman */
+.pengumuman-media {
+  width: 100%;
+  height: 180px;
+  background: #000;
+  overflow: hidden;
+}
+
+/* Video pengumuman */
+.pengumuman-media video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* video terlihat utuh */
+}
+
+/* Card pengumuman */
+.pengumuman-card {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  transition: 0.3s;
+}
+
+.pengumuman-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Isi pengumuman */
+.pengumuman-body {
+  padding: 14px;
+}
+
+.pengumuman-body h4 {
+  font-size: 15px;
+  color: #0f766e;
+  margin-bottom: 6px;
+}
+
+.pengumuman-body p {
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+}
+
+.pengumuman-body small {
+  display: block;
+  margin-top: 8px;
+  font-size: 12px;
+  color: #777;
+}
+@media (max-width: 600px) {
+  .pengumuman-media {
+    height: 160px;
+  }
+}
+
+/* =========================
+   FOOTER FIX RAPIH
+========================= */
+/* =========================
+   FOOTER FINAL FIX
+========================= */
+.footer {
+  background: #0f766e;
+  color: #ffffff;
+  margin-top: 80px;
+}
+
+.footer .container {
+  padding: 60px 0 30px;
+}
+
+/* GRID 3 KOLOM FIX */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 2fr;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* KOLOM */
+.footer-col h3 {
+  font-size: 18px;
+  margin-bottom: 14px;
+}
+
+.footer-col p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 8px;
+  opacity: 0.95;
+}
+
+/* LIST */
+.footer-col ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-col ul li {
+  margin-bottom: 8px;
+}
+
+.footer-col ul li a {
+  color: #ffffff;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.footer-col ul li a:hover {
+  text-decoration: underline;
+  opacity: 1;
+}
+
+/* SOSIAL */
+.footer-social {
+  display: flex;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.footer-social a {
+  width: 34px;
+  height: 34px;
+  background: rgba(255,255,255,0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+/* COPYRIGHT */
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.3);
+  margin-top: 40px;
+  padding-top: 14px;
+  text-align: center;
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+}
+/* =========================
+   LIGHTBOX GALERI FIX
+========================= */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.9);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+  z-index: 99999;
+}
+
+.lightbox.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.lightbox img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  border-radius: 12px;
+  background: #000;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 18px;
+  right: 28px;
+  font-size: 34px;
+  color: #fff;
+  cursor: pointer;
+}
+
+
